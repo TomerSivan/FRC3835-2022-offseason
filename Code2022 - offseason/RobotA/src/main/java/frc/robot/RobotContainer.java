@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import java.time.Instant;
+
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.RamseteController;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
@@ -14,7 +16,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.ParallelRaceGroup;
 import edu.wpi.first.wpilibj2.command.RamseteCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.AimToHub;
 import frc.robot.commands.AutoDriveToHub;
@@ -25,6 +29,9 @@ import frc.robot.commands.AutonomousOneBallPickup;
 import frc.robot.commands.AutonomousTaxiPickUp;
 import frc.robot.commands.CollectBall;
 import frc.robot.commands.DriveForward;
+import frc.robot.commands.MoveStorageAuto;
+import frc.robot.commands.Shoot2Balls;
+import frc.robot.commands.ShootAuto;
 import frc.robot.commands.TeleopShoot;
 import frc.robot.commands.Turn180Degrees;
 import frc.robot.subsystems.ClimbBase;
@@ -106,6 +113,13 @@ public class RobotContainer {
 
     // return new AutonomousTaxiPickUp(driveBase, shooterBase, limelightBase, intakeBase, storageSubsystem);
     // return new AutonomousOneBallPickup(this.driveBase, this.shooterBase, this.limelightBase, this.intakeBase, this.storageSubsystem);
+    
+    // return new SequentialCommandGroup(new ParallelRaceGroup(new InstantCommand(()-> new ShootAuto(shooterBase, 12)), new WaitCommand(1.3)), 
+    // new ParallelRaceGroup(new MoveStorageAuto(storageSubsystem), new WaitCommand(1.6))
+    // );
+
+    // return new Shoot2Balls(driveBase, intakeBase, storageSubsystem, shooterBase, limelightBase);
+    // return new AutonomousOneBallPickup(driveBase, shooterBase, limelightBase, intakeBase, storageSubsystem);
     // return new Autonomous3Balls(driveBase, intakeBase, storageSubsystem, shooterBase, limelightBase);
     return new Autonomous3BallsNew(driveBase, intakeBase, storageSubsystem, shooterBase, limelightBase);
     // return new AutonomousTaxiPickUp(driveBase, shooterBase, limelightBase, intakeBase, storageSubsystem);

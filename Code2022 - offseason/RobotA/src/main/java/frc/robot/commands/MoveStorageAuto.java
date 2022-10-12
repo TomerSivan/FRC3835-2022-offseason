@@ -29,14 +29,15 @@ public class MoveStorageAuto extends CommandBase {
   @Override
   public void execute() {
     
-    
+    this.storageSubsystem.setForward();
 
-    if (Math.abs(ShooterBase.velocity-ShooterBase.velocityTarget)<Constants.shooterSpeedDeadzone&&ShooterBase.velocityTarget!=0) {
-      this.storageSubsystem.setForward();
-    }
-    else {
-      this.storageSubsystem.zeroAllMotors();
-    }
+
+    // if (Math.abs(ShooterBase.velocity-ShooterBase.velocityTarget)<Constants.shooterSpeedDeadzone&&ShooterBase.velocityTarget!=0) {
+    //   this.storageSubsystem.setForward();
+    // }
+    // else {
+    //   this.storageSubsystem.zeroAllMotors();
+    // }
   }
 
   // Called once the command ends or is interrupted.

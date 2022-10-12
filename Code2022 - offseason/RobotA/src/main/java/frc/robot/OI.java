@@ -6,6 +6,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.Drive;
 import frc.robot.commands.AimToHub;
@@ -34,6 +36,7 @@ public class OI {
     private JoystickButton yButton = new JoystickButton(xboxController, 4);
     private JoystickButton leftBumber = new JoystickButton(xboxController, 5);
     private JoystickButton rightBumber = new JoystickButton(xboxController, 6);
+    private JoystickButton backButton = new JoystickButton(xboxController, 7);
     
     private static JoystickButton righJoystickButton = new JoystickButton(rightJoystick, 1);
     private static JoystickButton leftJoystickButton = new JoystickButton(leftJoystick, 1);
@@ -81,7 +84,15 @@ public class OI {
         //this.aButton.whenPressed(new ChangeIntakeRotation(this.intakeBase));
         // this.leftBumber.whenPressed(new LockOnHub(RobotContainer.driveBase, RobotContainer.limelightBase));
         this.yButton.whenPressed(new TeleopShoot(driveBase, shooterBase, limelightBase, storageSubsystem));
-        this.rightBumber.whenPressed(new SetCalcShooterSpeed(shooterBase, storageSubsystem, limelightBase)); 
-        this.leftBumber.whenPressed(new LockHubTimerTeleop(limelightBase, driveBase));     
+
+
+        // this.rightBumber.whenPressed(new SetCalcShooterSpeed(shooterBase, storageSubsystem, limelightBase)); 
+        this.rightBumber.whenPressed(new SetShooterSpeed(shooterBase, Constants.shootingFromHubVelocity, storageSubsystem));
+        this.leftBumber.whenPressed(new LockHubTimerTeleop(limelightBase, driveBase));  
+
+        this.backButton.whenPressed(new InstantCommand(()-> this.shooterBase.zeroShooterMotors()));
+        
+        
     }
+    
 }

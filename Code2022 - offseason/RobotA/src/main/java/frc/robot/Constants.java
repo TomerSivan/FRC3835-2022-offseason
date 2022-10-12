@@ -54,13 +54,14 @@ public final class Constants {
     public static final double climbTipSpeed = 1; //Speed for which angle to tip at
     public static final double climbElevatorEncoderToMeter = 0;//How many ticks for a meter(Elevator)
     public static final double climbAngleEncoderToAngle = 0;//How many ticks for 1(Angle)
-    public static final int elevatorClimbLowerSwitch = 3;
+    public static final int elevatorClimbLowerSwitch = 1;
     public static final int elevatorClimbUpperSwitch = 2;
     public static final int angleBackSwitch = 99;
     public static final int angleFrontSwitch = 99;
 
     //Storage
     public static final double shooterSpeedDeadzone = 0.8;
+
     public static final double storagePower = 0.7;//power that the storage system motors use
     public static final double storagePowerAuto = 0.65;
     public static final double maxDetection = 3;//max measurment when we detect the ball
@@ -96,7 +97,7 @@ public final class Constants {
     //Field & Robot
     public static class FieldAndRobot{
         public static final double upperHubHeight = 2.64; //in meters
-        public static final double limelightAngleDegrees = 30;
+        public static final double limelightAngleDegrees = 26.5;
         public static final double limelightHeight = 0.81;
         public static final double heightForCalculation = upperHubHeight - limelightHeight;
         public static final double leftoverDist = 0; //distance from when 'AutoDriveToHub' ends to target distance from hub

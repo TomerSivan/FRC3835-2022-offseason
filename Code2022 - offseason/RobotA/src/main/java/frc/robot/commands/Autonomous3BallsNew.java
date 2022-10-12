@@ -58,7 +58,7 @@ public class Autonomous3BallsNew extends SequentialCommandGroup {
     addCommands(
       new InstantCommand(()->shooterBase.setPowerShooter(0), shooterBase),
       new ParallelRaceGroup(new ShootAuto(shooterBase, Constants.shootingFromHubVelocityAuto), new WaitCommand(1.3)),
-      new ParallelRaceGroup(new MoveStorageAuto(storageSubsystem), new WaitCommand(1.8)),
+      new ParallelRaceGroup(new MoveStorageAuto(storageSubsystem), new WaitCommand(1.6)),
       new InstantCommand(()->shooterBase.setPowerShooter(0), shooterBase),
       new InstantCommand(()->intakeBase.intakeIn(), intakeBase),
       new InstantCommand(()->storageSubsystem.setLowStorage(), storageSubsystem),
